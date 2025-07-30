@@ -6,7 +6,11 @@ const images = [
     {src: "./img/esbjerg.jpg", alt: "esbjerg"},
     {src: "./img/kolding.jpg", alt: "kolding"},
     {src: "./img/odense.jpg", alt: "odense"},
-    {src: "./img/randers.jpg", alt: "randers"}    
+    {src: "./img/randers.jpg", alt: "randers"},
+    {src: "./img/faaborg.jpg", alt: "faaborg"},  
+    {src: "./img/faborg.jpg", alt: "faborg"},   
+    {src: "./img/ribe.jpg", alt: "ribe"},   
+    {src: "./img/skagen.jpg", alt: "skagen"}       
 ];
 const container = document.getElementById("container");
 
