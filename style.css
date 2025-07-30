@@ -1,0 +1,19 @@
+.header-section {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 0 rgba(0, 0, 1, 0.1);
+    background-color: rgb(40, 37, 37);
+}
+.header {
+    max-width: 1920px;
+    width: 100%;
+}
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.logo-img {
+    width: 300px;
+    padding: 10px;
+}
