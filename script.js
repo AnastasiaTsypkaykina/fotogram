@@ -1,22 +1,28 @@
 const images = [
-    {src: "./img/aalborg.jpg", alt: "aalborg"},
-    {src: "./img/aarhus.jpg", alt: "aarhus"},
-    {src: "./img/copenhagen1.jpg", alt: "copenhagen"},
-    {src: "./img/copenhagen2.jpg", alt: "copenhagen"},
-    {src: "./img/esbjerg.jpg", alt: "esbjerg"},
-    {src: "./img/kolding.jpg", alt: "kolding"},
-    {src: "./img/odense.jpg", alt: "odense"},
-    {src: "./img/randers.jpg", alt: "randers"},
-    {src: "./img/faaborg.jpg", alt: "faaborg"},  
-    {src: "./img/faborg.jpg", alt: "faborg"},   
-    {src: "./img/ribe.jpg", alt: "ribe"},   
-    {src: "./img/skagen.jpg", alt: "skagen"}       
+    "./img/aalborg.jpg",
+    "./img/aarhus.jpg",
+    "./img/copenhagen1.jpg",
+    "./img/copenhagen2.jpg",
+    "./img/esbjerg.jpg",
+    "./img/kolding.jpg",
+    "./img/odense.jpg",
+    "./img/randers.jpg",
+    "./img/faaborg.jpg",  
+    "./img/faborg.jpg",   
+    "./img/ribe.jpg",   
+    "./img/skagen.jpg"       
 ];
 const container = document.getElementById("container");
 
 function renderImages() {
-    document.getElementById('container').innerHTML = images
-    .map((img, index) => `<img src="${img.src}" alt="${img.alt}" class="photos">`);
+    const container = document.getElementById("container");    
+    for (let i=0; i<images.length; i++) {
+        container.innerHTML+=getImagesHtml(i);
+    }    
+}
+
+function getImagesHtml (i) {
+    return `<img class="photos" src="${images[i]}">`
 }
 
 
