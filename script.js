@@ -43,37 +43,58 @@ function init() {
 }
 
 function toggleOverlay() {
+  
   let overlayRef = document.getElementById("overlay");
   overlayRef.classList.toggle("d_none");
+  
 }
 
 function createDialogContent(i) {
-  toggleOverlay();
+  toggleOverlay();  
   let dialogRef = document.getElementById("overlay-dialog");  
-  dialogRef.innerHTML = getImageInDialogHtml(i);
-  
+  dialogRef.innerHTML = getImageInDialogHtml(i);    
+}
+function createDialogNoToggle (i){
+  let dialogRef = document.getElementById("overlay-dialog");  
+  dialogRef.innerHTML = getImageInDialogHtml(i); 
+
+}
+
+function bubblingDialog(event) {
+  event.stopPropagation();
 }
 
 function getImageInDialogHtml(i) {
   return `
-    <div class="dialog-img-wrapper">
+    <div onclick="bubblingDialog(event)" class="dialog-img-wrapper">
         <h2 id="title" class="title">${description[i]}</h2>
+        <span class="dialog-close">×</span>
         <img src="${images[i]}" class="dialog-img">
     </div>
 
-    <div class="dialog-controls">
+    <div onclick="bubblingDialog(event)" class="dialog-controls">
         <button onclick="openPrevFoto(${i})" class="dialog-arrow left-arrow" id="prev"><img src="./img/arrow-left.svg" alt="Zurück"></button>
         <span class="dialog-counter">${i + 1}/${images.length}</span>
-        <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/right.svg" alt="Weiter"></button>
+        <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/arrow-right.svg" alt="Weiter"></button>
     </div>        
        "`
 }
 
-function openPrevFoto (i) {
-    getImageInDialogHtml(i-1);
+
+function openPrevFoto (i) {  
+  if (i==0){
+    createDialogNoToggle(images.length-1);
+  } else {
+  
+    createDialogNoToggle(i-1);}
 }
 function openNextFoto (i) {
-    getImageInDialogHtml(i+1);
+  if (i==images.length-1){
+    createDialogNoToggle(0);
+  } else {
+  
+    createDialogNoToggle(i+1);}
+  
 }
 
 
