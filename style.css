@@ -62,6 +62,11 @@ h1 {
   color: white;
   padding-bottom: 20px;
 }
+h2 {
+  color: white;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
 .overlay {
   position: absolute;
   height: 100vh;
@@ -79,8 +84,9 @@ h1 {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   z-index: 1000;
   padding: 32px;
   box-sizing: border-box;
@@ -88,7 +94,7 @@ h1 {
 .overlay-dialog {
   max-width: 1000px;
   max-height: 90vh;
-  padding: 48px 40px 40px 40px;
+  
   background: #16323b;
   border-radius: 24px;
   position: relative;
@@ -101,13 +107,53 @@ h1 {
   width: 100%;
   max-width: 900px;
   aspect-ratio: 16/9;
-  background: #0a2632;
+  background: #16323b;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  flex-direction: column;
   margin: 24px auto;
+}
+.dialog-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.dialog-counter {
+  color: #fff;
+  font-size: 1.2em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.dialog-arrow {
+  background: #0a2632;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 0;
+}
+.dialog-arrow:hover {
+  background: #1e4a5a;
+  transform: scale(1.1);
+}
+.dialog-arrow img {
+  width: 28px;
+  height: 28px;
+}
+
+.right-arrow img {
+transform: rotate(180deg);
 }
 
 /* region footer */

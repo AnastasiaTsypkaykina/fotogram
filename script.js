@@ -13,6 +13,20 @@ const images = [
   "./img/skagen.jpg",
 ];
 
+const description = [
+  "Aalborg",
+  "Aarhus",
+  "Copenhagen",
+  "Copenhagen",
+  "Esbjerg",
+  "Kolding",
+  "Odense",
+  "Randers",
+  "Faaborg",
+  "Faaborg",
+  "Ribe",
+  "Skagen",
+];
 function renderImages() {
   const container = document.getElementById("container");
   for (let i = 0; i < images.length; i++) {
@@ -35,14 +49,31 @@ function toggleOverlay() {
 
 function createDialogContent(i) {
   toggleOverlay();
-  let dialogRef = document.getElementById("overlay-dialog");
-  let imageID=document.getElementById("image-button")
+  let dialogRef = document.getElementById("overlay-dialog");  
   dialogRef.innerHTML = getImageInDialogHtml(i);
+  
 }
 
 function getImageInDialogHtml(i) {
   return `
     <div class="dialog-img-wrapper">
+        <h2 id="title" class="title">${description[i]}</h2>
         <img src="${images[i]}" class="dialog-img">
-    </div>   "`
+    </div>
+
+    <div class="dialog-controls">
+        <button onclick="openPrevFoto(${i})" class="dialog-arrow left-arrow" id="prev"><img src="./img/arrow-left.svg" alt="Zurück"></button>
+        <span class="dialog-counter">${i + 1}/${images.length}</span>
+        <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/right.svg" alt="Weiter"></button>
+    </div>        
+       "`
 }
+
+function openPrevFoto (i) {
+    getImageInDialogHtml(i-1);
+}
+function openNextFoto (i) {
+    getImageInDialogHtml(i+1);
+}
+
+
