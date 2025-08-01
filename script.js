@@ -68,7 +68,7 @@ function getImageInDialogHtml(i) {
   return `
     <div onclick="bubblingDialog(event)" class="dialog-img-wrapper">
         <h2 id="title" class="title">${description[i]}</h2>
-        <span class="dialog-close">×</span>
+        <span onclick="toggleOverlay()" class="dialog-close">×</span>
         <img src="${images[i]}" class="dialog-img">
     </div>
 
@@ -88,6 +88,7 @@ function openPrevFoto (i) {
   
     createDialogNoToggle(i-1);}
 }
+
 function openNextFoto (i) {
   if (i==images.length-1){
     createDialogNoToggle(0);
