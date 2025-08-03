@@ -27,6 +27,7 @@ const description = [
   "Ribe",
   "Skagen",
 ];
+
 function renderImages() {
   const container = document.getElementById("container");
   for (let i = 0; i < images.length; i++) {
@@ -52,6 +53,7 @@ function createDialogContent(i) {
   let dialogRef = document.getElementById("overlay-dialog");
   dialogRef.innerHTML = getImageInDialogHtml(i);
 }
+
 function createDialogNoToggle(i) {
   let dialogRef = document.getElementById("overlay-dialog");
   dialogRef.innerHTML = getImageInDialogHtml(i);
