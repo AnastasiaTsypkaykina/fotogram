@@ -43,21 +43,18 @@ function init() {
 }
 
 function toggleOverlay() {
-  
   let overlayRef = document.getElementById("overlay");
   overlayRef.classList.toggle("d_none");
-  
 }
 
 function createDialogContent(i) {
-  toggleOverlay();  
-  let dialogRef = document.getElementById("overlay-dialog");  
-  dialogRef.innerHTML = getImageInDialogHtml(i);    
+  toggleOverlay();
+  let dialogRef = document.getElementById("overlay-dialog");
+  dialogRef.innerHTML = getImageInDialogHtml(i);
 }
-function createDialogNoToggle (i){
-  let dialogRef = document.getElementById("overlay-dialog");  
-  dialogRef.innerHTML = getImageInDialogHtml(i); 
-
+function createDialogNoToggle(i) {
+  let dialogRef = document.getElementById("overlay-dialog");
+  dialogRef.innerHTML = getImageInDialogHtml(i);
 }
 
 function bubblingDialog(event) {
@@ -77,25 +74,21 @@ function getImageInDialogHtml(i) {
         <span class="dialog-counter">${i + 1}/${images.length}</span>
         <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/arrow-right.svg" alt="Weiter"></button>
     </div>        
-       "`
+       "`;
 }
 
-
-function openPrevFoto (i) {  
-  if (i==0){
-    createDialogNoToggle(images.length-1);
+function openPrevFoto(i) {
+  if (i == 0) {
+    createDialogNoToggle(images.length - 1);
   } else {
-  
-    createDialogNoToggle(i-1);}
+    createDialogNoToggle(i - 1);
+  }
 }
 
-function openNextFoto (i) {
-  if (i==images.length-1){
+function openNextFoto(i) {
+  if (i == images.length - 1) {
     createDialogNoToggle(0);
   } else {
-  
-    createDialogNoToggle(i+1);}
-  
+    createDialogNoToggle(i + 1);
+  }
 }
-
-

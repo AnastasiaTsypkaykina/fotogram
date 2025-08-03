@@ -61,6 +61,7 @@ header {
 h1 {
   color: white;
   padding-bottom: 20px;
+  font-size: 30px;
 }
 h2 {
   color: white;
@@ -94,7 +95,7 @@ h2 {
 .overlay-dialog {
   max-width: 1000px;
   max-height: 90vh;
-  
+
   background: #16323b;
   border-radius: 24px;
   position: relative;
@@ -112,6 +113,7 @@ h2 {
   background: #0a2632;
 }
 .dialog-img-wrapper {
+  height: 900px;
   width: 100%;
   max-width: 900px;
   aspect-ratio: 16/9;
@@ -134,7 +136,7 @@ h2 {
 .dialog-counter {
   color: #fff;
   font-size: 1.2em;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .dialog-arrow {
@@ -148,7 +150,7 @@ h2 {
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   padding: 0;
 }
 .dialog-arrow:hover {
