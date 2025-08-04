@@ -173,6 +173,39 @@ h2 {
   padding-right: 20px;
 }
 
+/* responsive */
+@media (max-width: 1000px) {
+    .dialog-img-wrapper {
+        height: 900px;
+        width: 700px;
+    }
+
+}
+@media (max-width: 800px) {
+    .dialog-img-wrapper {
+        height: 500px;
+        width: 500px;
+    }
+
+}
+
+@media (max-width: 540px) {
+    h1 {
+        font-size: 20px;
+    }
+    .dialog-img-wrapper {
+        height: 300px;
+        width: 300px;
+    }
+
+}
+@media (max-width: 400px) {
+    h1 {
+        font-size: 16px;
+    }
+
+}
+
 /* region footer */
 .footer-section {
   display: flex;
