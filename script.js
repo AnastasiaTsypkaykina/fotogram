@@ -38,7 +38,7 @@ function renderImages() {
 }
 
 function getImagesHtml(i) {
-  return `<img onclick="createDialogContent(${i}, ${booleanTrue}) id="${i}" class="photos" src="${images[i]}">`;
+  return `<img onclick="createDialogContent(${i}, ${booleanTrue})" id="${i}" class="photos" src="${images[i]}">`;
 }
 
 function init() {
