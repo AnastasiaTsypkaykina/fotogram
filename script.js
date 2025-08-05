@@ -27,6 +27,8 @@ const description = [
   "Ribe",
   "Skagen",
 ];
+let booleanTrue = true;
+let booleanFalse = false;
 
 function renderImages() {
   const container = document.getElementById("container");
@@ -36,7 +38,7 @@ function renderImages() {
 }
 
 function getImagesHtml(i) {
-  return `<img onclick="createDialogContent(${i})" id="${i}" class="photos" src="${images[i]}">`;
+  return `<img onclick="createDialogContent(${i}, ${booleanTrue}) id="${i}" class="photos" src="${images[i]}">`;
 }
 
 function init() {
@@ -48,16 +50,20 @@ function toggleOverlay() {
   overlayRef.classList.toggle("d_none");
 }
 
-function createDialogContent(i) {
-  toggleOverlay();
+function createDialogContent(i, b) {
+  if (b == true) {
+    toggleOverlay();
+    let dialogRef = document.getElementById("overlay-dialog");
+    dialogRef.innerHTML = getImageInDialogHtml(i);
+  }
   let dialogRef = document.getElementById("overlay-dialog");
   dialogRef.innerHTML = getImageInDialogHtml(i);
 }
 
-function createDialogNoToggle(i) {
-  let dialogRef = document.getElementById("overlay-dialog");
-  dialogRef.innerHTML = getImageInDialogHtml(i);
-}
+// function createDialogNoToggle(i) {
+//   let dialogRef = document.getElementById("overlay-dialog");
+//   dialogRef.innerHTML = getImageInDialogHtml(i);
+// }
 
 function bubblingDialog(event) {
   event.stopPropagation();
@@ -72,25 +78,25 @@ function getImageInDialogHtml(i) {
     </div>
 
     <div onclick="bubblingDialog(event)" class="dialog-controls">
-        <button onclick="openPrevFoto(${i})" class="dialog-arrow left-arrow" id="prev"><img src="./img/arrow-left.svg" alt="Zurück"></button>
+        <button onclick="openPrevFoto(${i})" class="dialog-arrow left-arrow" id="prev"><img src="./img/arrow-next.svg" alt="Zurück"></button>
         <span class="dialog-counter">${i + 1}/${images.length}</span>
-        <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/arrow-right.svg" alt="Weiter"></button>
+        <button onclick="openNextFoto(${i})" class="dialog-arrow right-arrow" id="next"><img src="./img/arrow-next.svg" alt="Weiter"></button>
     </div>        
        "`;
 }
 
 function openPrevFoto(i) {
   if (i == 0) {
-    createDialogNoToggle(images.length - 1);
+    createDialogContent(images.length - 1, booleanFalse);
   } else {
-    createDialogNoToggle(i - 1);
+    createDialogContent(i - 1, booleanFalse);
   }
 }
 
 function openNextFoto(i) {
   if (i == images.length - 1) {
-    createDialogNoToggle(0);
+    createDialogContent(0, booleanFalse);
   } else {
-    createDialogNoToggle(i + 1);
+    createDialogContent(i + 1, booleanFalse);
   }
 }
