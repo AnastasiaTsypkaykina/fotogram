@@ -254,6 +254,11 @@ h2 {
     }
 
 }
+@media(max-width: 700px) {
+    .button-filter {
+        display: none;
+    }
+}
 
 /* region footer */
 .footer-section {
